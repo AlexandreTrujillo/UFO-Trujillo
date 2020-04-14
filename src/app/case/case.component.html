@@ -1,0 +1,35 @@
+<mat-card>
+  <h1>Bienvenue sur le nouveau site du GEIPAN !</h1>
+  <table mat-table [dataSource]="cases">
+
+    <ng-container matColumnDef="Nom">
+      <th mat-header-cell *matHeaderCellDef> Nom du cas </th>
+      <td mat-cell *matCellDef="let case"> {{case.cas_nom_dossier}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Obs">
+      <th mat-header-cell *matHeaderCellDef> Obs. </th>
+      <td mat-cell *matCellDef="let case"> {{case.cas_JJ}}/{{case.cas_MM}}/{{case.cas_AAAA}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Dept">
+      <th mat-header-cell *matHeaderCellDef> Département </th>
+      <td mat-cell *matCellDef="let case"> {{case.cas_zone_code}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Classe">
+      <th mat-header-cell *matHeaderCellDef> Classe </th>
+      <td mat-cell *matCellDef="let case"> {{case.cas_classification}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MaJ">
+      <th mat-header-cell *matHeaderCellDef> MàJ </th>
+      <td mat-cell *matCellDef="let case"> {{case.cas_date_maj}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+  </table>
+</mat-card>
+
